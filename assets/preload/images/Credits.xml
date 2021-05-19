@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Credits.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Credits0000" x="0" y="35" width="174" height="35" pivotX="-71.45" pivotY="-29.7" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0001" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0002" x="0" y="0" width="175" height="35" frameX="0" frameY="0" frameWidth="176" frameHeight="35"/>
+	<SubTexture name="Credits0003" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0004" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0005" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0006" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0007" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0008" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0009" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0010" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0011" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0012" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0013" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0014" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0015" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0016" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0017" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0018" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0019" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0020" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="Credits0021" x="0" y="35" width="174" height="35" frameX="-2" frameY="0" frameWidth="174" frameHeight="35"/>
+	<SubTexture name="CreditsB0000" x="0" y="35" width="174" height="35" pivotX="-71.45" pivotY="-29.7"/>
+	<SubTexture name="CreditsB0001" x="0" y="70" width="174" height="35"/>
+	<SubTexture name="CreditsB0002" x="0" y="35" width="174" height="35"/>
+	<SubTexture name="CreditsB0003" x="0" y="105" width="174" height="35"/>
+	<SubTexture name="CreditsB0004" x="0" y="35" width="174" height="35"/>
+	<SubTexture name="CreditsB0005" x="0" y="140" width="174" height="35"/>
+	<SubTexture name="CreditsB0006" x="0" y="35" width="174" height="35"/>
+	<SubTexture name="CreditsB0007" x="0" y="175" width="174" height="35"/>
+	<SubTexture name="CreditsB0008" x="0" y="35" width="174" height="35"/>
+</TextureAtlas>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="barbdance.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="barb dance0000" x="0" y="0" width="224" height="358" pivotX="0" pivotY="-5.5"/>
+	<SubTexture name="barb dance0001" x="224" y="0" width="223" height="330" frameX="-1" frameY="-28" frameWidth="224" frameHeight="358"/>
+	<SubTexture name="barb dance0002" x="224" y="0" width="223" height="330" frameX="-1" frameY="-28" frameWidth="224" frameHeight="358"/>
+	<SubTexture name="barb dance0003" x="447" y="0" width="223" height="339" frameX="-1" frameY="-19" frameWidth="224" frameHeight="358"/>
+	<SubTexture name="barb dance0004" x="670" y="0" width="223" height="352" frameX="-1" frameY="-6" frameWidth="224" frameHeight="358"/>
+	<SubTexture name="barb dance0005" x="0" y="358" width="224" height="354" frameX="0" frameY="-4" frameWidth="224" frameHeight="358"/>
+	<SubTexture name="barb dance0006" x="0" y="358" width="224" height="354" frameX="0" frameY="-4" frameWidth="224" frameHeight="358"/>
+	<SubTexture name="barb dance0007" x="0" y="358" width="224" height="354" frameX="0" frameY="-4" frameWidth="224" frameHeight="358"/>
+	<SubTexture name="barb dance0008" x="0" y="358" width="224" height="354" frameX="0" frameY="-4" frameWidth="224" frameHeight="358"/>
+	<SubTexture name="barb dance0009" x="0" y="358" width="224" height="354" frameX="0" frameY="-4" frameWidth="224" frameHeight="358"/>
+	<SubTexture name="barb dance0010" x="0" y="358" width="224" height="354" frameX="0" frameY="-4" frameWidth="224" frameHeight="358"/>
+	<SubTexture name="barb dance0011" x="0" y="358" width="224" height="354" frameX="0" frameY="-4" frameWidth="224" frameHeight="358"/>
+	<SubTexture name="barb dance0012" x="0" y="358" width="224" height="354" frameX="0" frameY="-4" frameWidth="224" frameHeight="358"/>
+	<SubTexture name="barb dance0013" x="0" y="358" width="224" height="354" frameX="0" frameY="-4" frameWidth="224" frameHeight="358"/>
+</TextureAtlas>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Clips_Idle.png">
+	<!-- Created with Adobe Animate version 21.0.3.38773 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Clips Idle WHITE0000" x="0" y="0" width="521" height="667" frameX="-7" frameY="-10" frameWidth="543" frameHeight="677"/>
+	<SubTexture name="Clips Idle WHITE0001" x="0" y="0" width="521" height="667" frameX="-7" frameY="-10" frameWidth="543" frameHeight="677"/>
+	<SubTexture name="Clips Idle WHITE0002" x="521" y="0" width="528" height="671" frameX="-4" frameY="-4" frameWidth="543" frameHeight="677"/>
+	<SubTexture name="Clips Idle WHITE0003" x="521" y="0" width="528" height="671" frameX="-4" frameY="-4" frameWidth="543" frameHeight="677"/>
+	<SubTexture name="Clips Idle WHITE0004" x="1049" y="0" width="543" height="674" frameX="0" frameY="0" frameWidth="543" frameHeight="677"/>
+	<SubTexture name="Clips Idle WHITE0005" x="1049" y="0" width="543" height="674" frameX="0" frameY="0" frameWidth="543" frameHeight="677"/>
+	<SubTexture name="Clips Idle WHITE0006" x="0" y="674" width="520" height="669" frameX="-4" frameY="-6" frameWidth="543" frameHeight="677"/>
+	<SubTexture name="Clips Idle WHITE0007" x="0" y="674" width="520" height="669" frameX="-4" frameY="-6" frameWidth="543" frameHeight="677"/>
+	<SubTexture name="Clips Idle WHITE0008" x="520" y="674" width="517" height="661" frameX="-5" frameY="-14" frameWidth="543" frameHeight="677"/>
+	<SubTexture name="Clips Idle WHITE0009" x="520" y="674" width="517" height="661" frameX="-5" frameY="-14" frameWidth="543" frameHeight="677"/>
+	<SubTexture name="Clips Idle WHITE0010" x="520" y="674" width="517" height="661" frameX="-5" frameY="-14" frameWidth="543" frameHeight="677"/>
+	<SubTexture name="Clips Idle WHITE0011" x="520" y="674" width="517" height="661" frameX="-5" frameY="-14" frameWidth="543" frameHeight="677"/>
+	<SubTexture name="Clips Idle WHITE0012" x="520" y="674" width="517" height="661" frameX="-5" frameY="-14" frameWidth="543" frameHeight="677"/>
+	<SubTexture name="Clips Idle WHITE0013" x="520" y="674" width="517" height="661" frameX="-5" frameY="-14" frameWidth="543" frameHeight="677"/>
+</TextureAtlas>

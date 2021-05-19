@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="nelchaeldance.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="nelchaeldance0000" x="0" y="0" width="257" height="592" pivotX="-11.05" pivotY="-11.25" frameX="0" frameY="0" frameWidth="268" frameHeight="592"/>
+	<SubTexture name="nelchaeldance0001" x="257" y="0" width="263" height="564" frameX="-5" frameY="-28" frameWidth="268" frameHeight="592"/>
+	<SubTexture name="nelchaeldance0002" x="257" y="0" width="263" height="564" frameX="-5" frameY="-28" frameWidth="268" frameHeight="592"/>
+	<SubTexture name="nelchaeldance0003" x="520" y="0" width="260" height="579" frameX="-5" frameY="-13" frameWidth="268" frameHeight="592"/>
+	<SubTexture name="nelchaeldance0004" x="780" y="0" width="258" height="588" frameX="-5" frameY="-4" frameWidth="268" frameHeight="592"/>
+	<SubTexture name="nelchaeldance0005" x="1038" y="0" width="257" height="590" frameX="-1" frameY="-2" frameWidth="268" frameHeight="592"/>
+	<SubTexture name="nelchaeldance0006" x="1038" y="0" width="257" height="590" frameX="-1" frameY="-2" frameWidth="268" frameHeight="592"/>
+	<SubTexture name="nelchaeldance0007" x="1038" y="0" width="257" height="590" frameX="-1" frameY="-2" frameWidth="268" frameHeight="592"/>
+	<SubTexture name="nelchaeldance0008" x="1038" y="0" width="257" height="590" frameX="-1" frameY="-2" frameWidth="268" frameHeight="592"/>
+	<SubTexture name="nelchaeldance0009" x="1038" y="0" width="257" height="590" frameX="-1" frameY="-2" frameWidth="268" frameHeight="592"/>
+	<SubTexture name="nelchaeldance0010" x="1038" y="0" width="257" height="590" frameX="-1" frameY="-2" frameWidth="268" frameHeight="592"/>
+	<SubTexture name="nelchaeldance0011" x="1038" y="0" width="257" height="590" frameX="-1" frameY="-2" frameWidth="268" frameHeight="592"/>
+	<SubTexture name="nelchaeldance0012" x="1038" y="0" width="257" height="590" frameX="-1" frameY="-2" frameWidth="268" frameHeight="592"/>
+	<SubTexture name="nelchaeldance0013" x="1038" y="0" width="257" height="590" frameX="-1" frameY="-2" frameWidth="268" frameHeight="592"/>
+</TextureAtlas>
