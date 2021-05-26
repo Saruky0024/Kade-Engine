@@ -1,5 +1,6 @@
 package;
 
+import flixel.math.FlxMath;
 import Controls.KeyboardScheme;
 import flixel.FlxG;
 import flixel.FlxObject;
@@ -205,9 +206,19 @@ class MainMenuState extends MusicBeatState
 		super.update(elapsed);
 
 		menuItems.forEach(function(spr:FlxSprite)
-		{
-			spr.screenCenter(X);
-		});
+			{
+				spr.scale.set(FlxMath.lerp(spr.scale.x, 0.9, 0.1), FlxMath.lerp(spr.scale.y, 0.9, 0.4));
+				spr.y = FlxMath.lerp(spr.y, 60 + (spr.ID * 160), 0.4);
+	
+				if (spr.ID == curSelected)
+				{
+					spr.scale.set(FlxMath.lerp(spr.scale.x, 1.3, 0.1), FlxMath.lerp(spr.scale.y, 1.3, 0.4));
+					spr.y = FlxMath.lerp(spr.y, 20 + (spr.ID * 160), 0.4);
+				}
+	
+				spr.updateHitbox();
+				spr.screenCenter(X);
+			});
 	}
 	
 	function goToState()
