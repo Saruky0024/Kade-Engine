@@ -66,7 +66,7 @@ class OptionsMenu extends MusicBeatState
 
 	override function create()
 	{
-		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image("menuDesat"));
+		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image("menuclipsDesat"));
 
 		menuBG.color = 0xFFea71fd;
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
@@ -95,6 +95,8 @@ class OptionsMenu extends MusicBeatState
 		add(versionShit);
 
 		super.create();
+
+		changeSelection();
 	}
 
 	var isCat:Bool = false;
@@ -192,6 +194,7 @@ class OptionsMenu extends MusicBeatState
 						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, currentSelectedCat.getOptions()[curSelected].getDisplay(), true, false);
 						ctrl.isMenuItem = true;
 						grpControls.add(ctrl);
+						changeSelection();
 					}
 				}
 				else
