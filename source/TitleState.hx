@@ -38,6 +38,7 @@ using StringTools;
 class TitleState extends MusicBeatState
 {
 	static var initialized:Bool = false;
+	static var firstUse:Bool = false;
 
 	var blackScreen:FlxSprite;
 	var credGroup:FlxGroup;
@@ -299,7 +300,7 @@ class TitleState extends MusicBeatState
 			NGio.unlockMedal(60960);
 
 			FlxTween.tween(logoBl, {'scale.x': 9, 'scale.y': 9, color: 0xFF000000}, 2.3, {ease: FlxEase.quartIn});
-			FlxTween.tween(logoBl, {y: -5000}, 1, {ease: FlxEase.quartIn});
+			FlxTween.tween(logoBl, {y: -5000, alpha: -1.5}, 1, {ease: FlxEase.quartIn});
 			FlxTween.tween(titleText, {y: 800}, 1, {ease: FlxEase.quartIn});
 			FlxTween.tween(FlxG.camera, {zoom: 4, alpha: 0}, 0.7, {ease: FlxEase.quartIn, startDelay: 0.5});
 
@@ -315,40 +316,13 @@ class TitleState extends MusicBeatState
 			FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
 
 			transitioning = true;
+			firstUse = true;
 			// FlxG.sound.music.stop();
 
 			new FlxTimer().start(0.5, function(tmr:FlxTimer)
 			{
 				FlxTween.color(niceBG, 0.7, niceBG.color, 0xAA1F0076, {ease: FlxEase.quartInOut});
-				// Get current version of Kade Engine
-
-				//var http = new haxe.Http("https://raw.githubusercontent.com/KadeDev/Kade-Engine/master/version.downloadMe");
-				var http = new haxe.Http("https://raw.githubusercontent.com/KadeDev/Kade-Engine/patchnotes/version.downloadMe");
-				var returnedData:Array<String> = [];
-				
-				http.onData = function (data:String)
-				{
-					returnedData[0] = data.substring(0, data.indexOf(';'));
-					returnedData[1] = data.substring(data.indexOf('-'), data.length);
-				  	if (!MainMenuState.kadeEngineVer.contains(returnedData[0].trim()) && !OutdatedSubState.leftState && MainMenuState.nightly == "")
-					{
-						trace('outdated lmao! ' + returnedData[0] + ' != ' + MainMenuState.kadeEngineVer);
-						OutdatedSubState.needVer = returnedData[0];
-						OutdatedSubState.currChanges = returnedData[1];
-						FlxG.switchState(new OutdatedSubState());
-					}
-					else
-					{
-						FlxG.switchState(new MainMenuState());
-					}
-				}
-				
-				http.onError = function (error) {
-				  trace('error: $error');
-				  FlxG.switchState(new MainMenuState()); // fail but we go anyway
-				}
-				
-				http.request();
+				FlxG.switchState(new MainMenuState());
 			});
 			// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
 		}
@@ -397,74 +371,77 @@ class TitleState extends MusicBeatState
 
 		logoBl.animation.play('bump');
 
-		FlxG.log.add(curBeat);
-
-		switch (curBeat)
+		if (!firstUse)
 		{
-			case 1:
-				addMoreText('Saruky');
-			// credTextShit.visible = true;
-			case 3:
-				addMoreText('presents');
-			// credTextShit.text += '\npresent...';
-			// credTextShit.addText();
-			case 4:
-				deleteCoolText();
-			// credTextShit.visible = false;
-			// credTextShit.text = 'In association \nwith';
-			// credTextShit.screenCenter();
-			case 5:
-				if (Main.watermarks)
-					createCoolText(['Kade Engine', 'by']);
-				else
-					createCoolText(['In Collaboration', 'with']);
-			case 7:
-				if (Main.watermarks)
-					addMoreText('KadeDeveloper');
-				else
-					ngSpr.visible = true;
-			// credTextShit.text += '\nNewgrounds';
-			case 8:
-				deleteCoolText();
-				ngSpr.visible = false;
-			// credTextShit.visible = false;
+			FlxG.log.add(curBeat);
 
-			// credTextShit.text = 'Shoutouts Tom Fulp';
-			// credTextShit.screenCenter();
-			case 9:
-				createCoolText([curWacky[0]]);
-			// credTextShit.visible = true;
-			case 11:
-				addMoreText(curWacky[1]);
-			// credTextShit.text += '\nlmao';
-			case 12:
-				deleteCoolText();
-				addMoreText('Friday');
-			// credTextShit.visible = false;
-			// credTextShit.text = "Friday";
-			// credTextShit.screenCenter();
-			case 13:
-				addMoreText('Night');
-			// credTextShit.visible = true;
-			case 14:
-				addMoreText('Funkin');
-			// credTextShit.text += '\nNight';
-				if (!skippedIntro)
-				{
-					niceBG.color = 0xAA1F0076;
-					FlxTween.color(niceBG, 1, niceBG.color, 0xFFFFFFFF, {ease: FlxEase.quartInOut});
-					FlxTween.tween(niceBG, {'scale.x': 1.1, 'scale.y': 1.1, alpha: 1, x: niceBG.x -= 20, y: niceBG.y -= 765}, 1, {ease: FlxEase.quartInOut});
-				}
-
-				nicegrASS.color = 0xAA1F0076;
-				FlxTween.color(nicegrASS, 1, nicegrASS.color, 0xFFFFFFFF, {ease: FlxEase.quartInOut});
-				if (!skippedIntro)
-					FlxTween.tween(nicegrASS, {'scale.x': 1.1, 'scale.y': 1.1, alpha: 1, x: nicegrASS.x -= 20, y: nicegrASS.y -= 765}, 1, {ease: FlxEase.quartInOut});
-			case 15:
-				addMoreText('Moonlight'); // credTextShit.text += '\nFunkin';
-
-			case 16:
-				skipIntro();
+			switch (curBeat)
+			{
+				case 1:
+					addMoreText('Saruky');
+				// credTextShit.visible = true;
+				case 3:
+					addMoreText('presents');
+				// credTextShit.text += '\npresent...';
+				// credTextShit.addText();
+				case 4:
+					deleteCoolText();
+				// credTextShit.visible = false;
+				// credTextShit.text = 'In association \nwith';
+				// credTextShit.screenCenter();
+				case 5:
+					if (Main.watermarks)
+						createCoolText(['Kade Engine', 'by']);
+					else
+						createCoolText(['In Collaboration', 'with']);
+				case 7:
+					if (Main.watermarks)
+						addMoreText('KadeDeveloper');
+					else
+						ngSpr.visible = true;
+				// credTextShit.text += '\nNewgrounds';
+				case 8:
+					deleteCoolText();
+					ngSpr.visible = false;
+				// credTextShit.visible = false;
+	
+				// credTextShit.text = 'Shoutouts Tom Fulp';
+				// credTextShit.screenCenter();
+				case 9:
+					createCoolText([curWacky[0]]);
+				// credTextShit.visible = true;
+				case 11:
+					addMoreText(curWacky[1]);
+				// credTextShit.text += '\nlmao';
+				case 12:
+					deleteCoolText();
+					addMoreText('Friday');
+				// credTextShit.visible = false;
+				// credTextShit.text = "Friday";
+				// credTextShit.screenCenter();
+				case 13:
+					addMoreText('Night');
+				// credTextShit.visible = true;
+				case 14:
+					addMoreText('Funkin');
+				// credTextShit.text += '\nNight';
+					if (!skippedIntro)
+					{
+						niceBG.color = 0xAA1F0076;
+						FlxTween.color(niceBG, 1, niceBG.color, 0xFFFFFFFF, {ease: FlxEase.quartInOut});
+						FlxTween.tween(niceBG, {'scale.x': 1.1, 'scale.y': 1.1, alpha: 1, x: niceBG.x -= 20, y: niceBG.y -= 765}, 1, {ease: FlxEase.quartInOut});
+					}
+	
+					nicegrASS.color = 0xAA1F0076;
+					FlxTween.color(nicegrASS, 1, nicegrASS.color, 0xFFFFFFFF, {ease: FlxEase.quartInOut});
+					if (!skippedIntro)
+						FlxTween.tween(nicegrASS, {'scale.x': 1.1, 'scale.y': 1.1, alpha: 1, x: nicegrASS.x -= 20, y: nicegrASS.y -= 765}, 1, {ease: FlxEase.quartInOut});
+				case 15:
+					addMoreText('Moonlight'); // credTextShit.text += '\nFunkin';
+	
+				case 16:
+					skipIntro();
+			}
 		}
 	}
 

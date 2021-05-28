@@ -55,7 +55,7 @@ class ChartingState extends MusicBeatState
 	var bpmTxt:FlxText;
 
 	var strumLine:FlxSprite;
-	var curSong:String = 'Dad Battle';
+	var curSong:String = 'Tutorial';
 	var amountSteps:Int = 0;
 	var bullshitUI:FlxGroup;
 	var writingNotesText:FlxText;
@@ -82,7 +82,7 @@ class ChartingState extends MusicBeatState
 	var gridBlackLine:FlxSprite;
 	var vocals:FlxSound;
 
-	var player2:Character = new Character(0,0, "dad");
+	var player2:Character = new Character(0,0, "clips");
 	var player1:Boyfriend = new Boyfriend(0,0, "bf");
 
 	var leftIcon:HealthIcon;
@@ -100,16 +100,16 @@ class ChartingState extends MusicBeatState
 		else
 		{
 			_song = {
-				song: 'Test',
+				song: 'stardust',
 				notes: [],
-				bpm: 150,
+				bpm: 117,
 				needsVoices: true,
 				player1: 'bf',
-				player2: 'dad',
+				player2: 'clips',
 				gfVersion: 'gf',
 				noteStyle: 'normal',
 				stage: 'stage',
-				speed: 1,
+				speed: 1.7,
 				validScore: false
 			};
 		}

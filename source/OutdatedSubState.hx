@@ -91,7 +91,7 @@ class OutdatedSubState extends MusicBeatState
 		if (controls.BACK)
 		{
 			leftState = true;
-			FlxG.switchState(new MainMenuState());
+			FlxG.switchState(new TitleState());
 		}
 		super.update(elapsed);
 	}

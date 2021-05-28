@@ -1,5 +1,6 @@
 package;
 
+import flixel.util.FlxGradient;
 import flixel.math.FlxMath;
 import Controls.KeyboardScheme;
 import flixel.FlxG;
@@ -29,7 +30,7 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
 	#if !switch
-	var optionShit:Array<String> = ['story mode', 'freeplay', 'donate', 'options'];
+	var optionShit:Array<String> = ['story mode', 'freeplay', 'credits', 'options'];
 	#else
 	var optionShit:Array<String> = ['story mode', 'freeplay'];
 	#end
@@ -37,6 +38,8 @@ class MainMenuState extends MusicBeatState
 	var newGaming:FlxText;
 	var newGaming2:FlxText;
 	var newInput:Bool = true;
+	var gradientBar:FlxSprite = new FlxSprite(0, 0).makeGraphic(1, FlxG.height, 0xFFAA00AA);
+	var moony:FlxSprite; //ENA? :flushed:
 
 	public static var nightly:String = "";
 
@@ -67,6 +70,7 @@ class MainMenuState extends MusicBeatState
 		bg.updateHitbox();
 		bg.screenCenter();
 		bg.antialiasing = true;
+		bg.alpha = 0.5;
 		add(bg);
 
 		camFollow = new FlxObject(0, 0, 1, 1);
@@ -81,8 +85,24 @@ class MainMenuState extends MusicBeatState
 		magenta.visible = false;
 		magenta.antialiasing = true;
 		magenta.color = 0xFFfd719b;
+		magenta.alpha = 0.5;
 		add(magenta);
 		// magenta.scrollFactor.set();
+
+		gradientBar = FlxGradient.createGradientFlxSprite(312, Math.round(FlxG.height), [0x00FFFFFF, 0x77FFFFFF, 0xFFFFFFFF], 1, 0, true);
+		gradientBar.scale.x = 0;
+		gradientBar.updateHitbox();
+		gradientBar.scrollFactor.set();
+		add(gradientBar);
+		FlxTween.tween(gradientBar, {'scale.x': 3.5}, 0.6, {ease: FlxEase.quadInOut});
+
+		moony = new FlxSprite(-80).loadGraphic(Paths.image('moony'));
+		moony.scrollFactor.x = 0;
+		moony.scrollFactor.y = 0.05;
+		moony.screenCenter(Y);
+		moony.x = 1480 - moony.width;
+		moony.antialiasing = true;
+		add(moony);
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -112,6 +132,14 @@ class MainMenuState extends MusicBeatState
 
 		// NG.core.calls.event.logEvent('swag').send();
 
+		FlxG.camera.zoom = 0.6;
+		FlxG.camera.alpha = 0;
+		FlxTween.tween(FlxG.camera, {zoom: 1, alpha: 1}, 0.5, {ease: FlxEase.quartInOut});
+
+		new FlxTimer().start(0.5, function(tmr:FlxTimer)
+			{
+				selectable = true;
+			});
 
 		if (FlxG.save.data.dfjk)
 			controls.setKeyboardScheme(KeyboardScheme.Solo, true);
@@ -124,6 +152,8 @@ class MainMenuState extends MusicBeatState
 	}
 
 	var selectedSomethin:Bool = false;
+	var selectable:Bool = false;
+	var timer:Int = 0;
 
 	override function update(elapsed:Float)
 	{
@@ -132,7 +162,9 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
-		if (!selectedSomethin)
+		gradientBar.x = FlxG.width - gradientBar.width;
+
+		if (!selectedSomethin && selectable)
 		{
 			if (controls.UP_P)
 			{
@@ -148,62 +180,57 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.BACK)
 			{
-				FlxG.switchState(new TitleState());
+				selectedSomethin = true;
+				FlxTween.tween(FlxG.camera, {zoom: 0.4, alpha: 0}, 0.5, {ease: FlxEase.backIn});
+				FlxG.switchState(new TitleState_Return());
 			}
 
 			if (controls.ACCEPT)
 			{
-				if (optionShit[curSelected] == 'donate')
-				{
-					#if linux
-					Sys.command('/usr/bin/xdg-open', ["https://www.kickstarter.com/projects/funkin/friday-night-funkin-the-full-ass-game", "&"]);
-					#else
-					FlxG.openURL('https://www.kickstarter.com/projects/funkin/friday-night-funkin-the-full-ass-game');
-					#end
-				}
-				else
-				{
-					selectedSomethin = true;
-					FlxG.sound.play(Paths.sound('confirmMenu'));
+				selectedSomethin = true;
+				FlxG.sound.play(Paths.sound('confirmMenu'));
 					
-					if (FlxG.save.data.flashing)
-						FlxFlicker.flicker(magenta, 1.1, 0.15, false);
+				if (FlxG.save.data.flashing)
+					FlxFlicker.flicker(magenta, 1.1, 0.15, false);
 
-					menuItems.forEach(function(spr:FlxSprite)
+				menuItems.forEach(function(spr:FlxSprite)
+				{
+					if (curSelected != spr.ID)
 					{
-						if (curSelected != spr.ID)
+						FlxTween.tween(spr, {alpha: 0}, 1.3, {
+							ease: FlxEase.quadOut,
+							onComplete: function(twn:FlxTween)
+							{
+								spr.kill();
+							}
+						});
+					}
+					else
+					{
+						if (FlxG.save.data.flashing)
 						{
-							FlxTween.tween(spr, {alpha: 0}, 1.3, {
-								ease: FlxEase.quadOut,
-								onComplete: function(twn:FlxTween)
-								{
-									spr.kill();
-								}
+							FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
+							{
+								goToState();
 							});
 						}
 						else
 						{
-							if (FlxG.save.data.flashing)
+							new FlxTimer().start(1, function(tmr:FlxTimer)
 							{
-								FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
-								{
-									goToState();
-								});
-							}
-							else
-							{
-								new FlxTimer().start(1, function(tmr:FlxTimer)
-								{
-									goToState();
-								});
-							}
+								goToState();
+							});
 						}
-					});
-				}
+					}
+				});
 			}
 		}
 
 		super.update(elapsed);
+		timer++;
+		moony.angle = Math.sin(timer/200)*25;
+
+		moony.color = gradientBar.color;
 
 		menuItems.forEach(function(spr:FlxSprite)
 			{
@@ -237,6 +264,7 @@ class MainMenuState extends MusicBeatState
 
 			case 'options':
 				FlxG.switchState(new OptionsMenu());
+			case 'credits':
 		}
 	}
 
@@ -248,6 +276,18 @@ class MainMenuState extends MusicBeatState
 			curSelected = 0;
 		if (curSelected < 0)
 			curSelected = menuItems.length - 1;
+
+		switch optionShit[curSelected]
+		{
+			case 'story mode':
+				FlxTween.color(gradientBar, 0.4, gradientBar.color, 0xFFFF8100, {ease: FlxEase.backInOut});
+			case 'freeplay':
+				FlxTween.color(gradientBar, 0.4, gradientBar.color, 0xFF17D2FF, {ease: FlxEase.backInOut});
+			case 'credits':
+				FlxTween.color(gradientBar, 0.4, gradientBar.color, 0xFF5E1BA4, {ease: FlxEase.backInOut});
+			case 'options':
+				FlxTween.color(gradientBar, 0.4, gradientBar.color, 0xFFFFBAC5, {ease: FlxEase.backInOut});
+		}
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{
